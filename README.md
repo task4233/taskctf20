@@ -1,7 +1,6 @@
 # taskctf20
 
-There are all problems and write-ups in taskctf20.
-There is a directory for each problem.
+There are all problems and writeups for taskctf20.
 
 Twitter Hashtag: [#taskctf](https://twitter.com/search?q=%23taskctf&src=typed_query&f=live)
 
