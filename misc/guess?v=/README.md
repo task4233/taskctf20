@@ -9,3 +9,7 @@ https://www.youtube.com/watch?v=t1zPpBwRbAw
 
 # フラグ
 `taskctf{h0w_w4s_it?}`
+
+# コメント
+Guess問なので, あまりよろしくないです。
+その分, 点数を少なくしました。
