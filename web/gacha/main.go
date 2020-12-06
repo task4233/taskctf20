@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"log"
 	"net/http"
 	"os"
@@ -9,8 +10,6 @@ import (
 	"strconv"
 	"syscall"
 	"time"
-	"encoding/json"
-	"math"
 )
 
 func main() {
@@ -43,7 +42,7 @@ func gachaHandler(w http.ResponseWriter, r *http.Request) {
 	seedInt, err := strconv.Atoi(seed)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return 
+		return
 	}
 
 	// get current time(HHmmss)
@@ -56,7 +55,7 @@ func gachaHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	sm := (seedInt * nowInt) % 1000007
+	sm := (seedInt + nowInt) % 100000
 	log.Println(sm)
 	var flag map[string]string
 
@@ -67,7 +66,7 @@ func gachaHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		flag = map[string]string{
 			"flag": "You might not have a luck...",
-			"diff": strconv.Itoa(int(math.Abs(float64(sm - 1337)))),
+			"sum":  strconv.Itoa(sm),
 		}
 	}
 	res, _ := json.Marshal(flag)
