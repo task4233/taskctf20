@@ -71,6 +71,9 @@ func gachaHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	res, _ := json.Marshal(flag)
 	w.WriteHeader(http.StatusOK)
-	w.Write(res)
-	return
+	_, err = w.Write(res)
+    if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 }
