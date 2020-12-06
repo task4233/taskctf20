@@ -6,3 +6,9 @@ services:
       - ./web/simple_xss/:/var/www/html
     ports:
       - 3333:80
+  eval:
+    build: ./docker/php
+    volumes:
+     - ./web/eval/:/var/www/html
+    ports:
+     - 3337:80
