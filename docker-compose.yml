@@ -19,9 +19,3 @@ services:
       - ./web/gacha/:/go/src/app
     ports:
       - 3334:3334
-  gachaf:
-    build: ./docker/php
-    volumes:
-      - ./web/gachaf/:/var/www/html
-    ports:
-      - 3335:80
