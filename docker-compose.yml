@@ -9,6 +9,13 @@ services:
   eval:
     build: ./docker/php
     volumes:
-     - ./web/eval/:/var/www/html
+      - ./web/eval/:/var/www/html
     ports:
-     - 3337:80
+      - 3337:80
+  gacha:
+    image: golang:alpine
+    command: /bin/sh -c "cd /go/src/app && go run main.go"
+    volumes:
+      - ./web/gacha/:/go/src/app
+    ports:
+      - 3334:3334
