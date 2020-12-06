@@ -1,4 +1,8 @@
 <?php
+    if (preg_match('/\.(?:png|jpg|jpeg|gif|txt)$/', $_SERVER["REQUEST_URI"])) {
+       $_SERVER["REQUEST_URL"] = "/index.php";
+    }
+    echo $_SERVER["REQUEST_URL"];
     $data = filter_input(INPUT_GET, "data", FILTER_SANITIZE_SPECIAL_CHARS);
 ?>
 <!DOCTYPE html>
